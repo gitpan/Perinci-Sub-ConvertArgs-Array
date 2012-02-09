@@ -1,0 +1,28 @@
+NAME
+    Perinci::Sub::ConvertArgs::Array - Convert hash arguments to array
+
+VERSION
+    version 0.04
+
+SYNOPSIS
+     use Perinci::Sub::ConvertArgs::Array qw(convert_args_to_array);
+
+     my $res = convert_args_to_array(args=>\%args, spec=>$spec, ...);
+
+DESCRIPTION
+    This module provides convert_args_to_array() (and
+    gencode_convert_args_to_array(), upcoming). This module is used by,
+    among others, Perinci::Sub::Wrapper.
+
+FUNCTIONS
+    None are exported by default, but they are exportable.
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2012 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
