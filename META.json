@@ -29,8 +29,6 @@
       },
       "runtime" : {
          "requires" : {
-            "Data::Sah" : "0.02",
-            "Log::Any" : "0",
             "Rinci" : "v1.1.0",
             "perl" : "5.010001"
          }
@@ -56,7 +54,7 @@
          "web" : "https://github.com/sharyanto/perl-Perinci-Sub-ConvertArgs-Array"
       }
    },
-   "version" : "0.05",
+   "version" : "0.06",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.018002"

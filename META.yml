@@ -17,15 +17,13 @@ meta-spec:
   version: '1.4'
 name: Perinci-Sub-ConvertArgs-Array
 requires:
-  Data::Sah: '0.02'
-  Log::Any: '0'
   Rinci: v1.1.0
   perl: '5.010001'
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-Sub-ConvertArgs-Array
   homepage: https://metacpan.org/release/Perinci-Sub-ConvertArgs-Array
   repository: git://github.com/sharyanto/perl-Perinci-Sub-ConvertArgs-Array.git
-version: '0.05'
+version: '0.06'
 x_Dist_Zilla:
   perl:
     version: '5.018002'

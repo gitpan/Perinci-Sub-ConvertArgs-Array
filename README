@@ -2,7 +2,7 @@ NAME
     Perinci::Sub::ConvertArgs::Array - Convert hash arguments to array
 
 VERSION
-    This document describes version 0.05 of Perinci::Sub::ConvertArgs::Array
+    This document describes version 0.06 of Perinci::Sub::ConvertArgs::Array
     (from Perl distribution Perinci-Sub-ConvertArgs-Array), released on
     2014-07-18.
 
@@ -57,6 +57,8 @@ FUNCTIONS
     element (result) is optional, the actual result. Fourth element (meta)
     is called result metadata and is optional, a hash that contains extra
     information.
+
+     (any)
 
 HOMEPAGE
     Please visit the project's homepage at

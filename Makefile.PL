@@ -20,8 +20,6 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Perinci::Sub::ConvertArgs::Array",
   "PREREQ_PM" => {
-    "Data::Sah" => "0.02",
-    "Log::Any" => 0,
     "Rinci" => "v1.1.0"
   },
   "TEST_REQUIRES" => {
@@ -30,7 +28,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => "0.98"
   },
-  "VERSION" => "0.05",
+  "VERSION" => "0.06",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -38,11 +36,9 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
-  "Data::Sah" => "0.02",
   "File::Spec" => 0,
   "IO::Handle" => 0,
   "IPC::Open3" => 0,
-  "Log::Any" => 0,
   "Rinci" => "v1.1.0",
   "Test::More" => "0.98"
 );

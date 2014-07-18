@@ -1,23 +1,17 @@
 package Perinci::Sub::ConvertArgs::Array;
 
+our $DATE = '2014-07-18'; # DATE
+our $VERSION = '0.06'; # VERSION
+
 use 5.010001;
 use strict;
 use warnings;
-use Log::Any '$log';
-
-use Data::Sah;
 
 use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(convert_args_to_array);
 
-our $VERSION = '0.05'; # VERSION
-
 our %SPEC;
-
-sub _parse_schema {
-    Data::Sah::normalize_schema(@_);
-}
 
 $SPEC{convert_args_to_array} = {
     v => 1.1,
@@ -97,7 +91,7 @@ Perinci::Sub::ConvertArgs::Array - Convert hash arguments to array
 
 =head1 VERSION
 
-This document describes version 0.05 of Perinci::Sub::ConvertArgs::Array (from Perl distribution Perinci-Sub-ConvertArgs-Array), released on 2014-07-18.
+This document describes version 0.06 of Perinci::Sub::ConvertArgs::Array (from Perl distribution Perinci-Sub-ConvertArgs-Array), released on 2014-07-18.
 
 =head1 SYNOPSIS
 
@@ -158,6 +152,8 @@ First element (status) is an integer containing HTTP status code
 200. Third element (result) is optional, the actual result. Fourth
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
+
+ (any)
 
 =head1 HOMEPAGE
 
