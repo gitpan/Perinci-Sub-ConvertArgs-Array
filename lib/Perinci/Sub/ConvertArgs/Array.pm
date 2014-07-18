@@ -1,6 +1,6 @@
 package Perinci::Sub::ConvertArgs::Array;
 
-use 5.010;
+use 5.010001;
 use strict;
 use warnings;
 use Log::Any '$log';
@@ -11,7 +11,7 @@ use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(convert_args_to_array);
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 our %SPEC;
 
@@ -85,8 +85,11 @@ sub convert_args_to_array {
 1;
 #ABSTRACT: Convert hash arguments to array
 
+__END__
 
 =pod
+
+=encoding UTF-8
 
 =head1 NAME
 
@@ -94,13 +97,13 @@ Perinci::Sub::ConvertArgs::Array - Convert hash arguments to array
 
 =head1 VERSION
 
-version 0.04
+This document describes version 0.05 of Perinci::Sub::ConvertArgs::Array (from Perl distribution Perinci-Sub-ConvertArgs-Array), released on 2014-07-18.
 
 =head1 SYNOPSIS
 
  use Perinci::Sub::ConvertArgs::Array qw(convert_args_to_array);
 
- my $res = convert_args_to_array(args=>\%args, spec=>$spec, ...);
+ my $res = convert_args_to_array(args=>\%args, meta=>$meta, ...);
 
 =head1 DESCRIPTION
 
@@ -112,19 +115,75 @@ others, L<Perinci::Sub::Wrapper>.
 
 None are exported by default, but they are exportable.
 
+
+=head2 convert_args_to_array(%args) -> [status, msg, result, meta]
+
+Convert hash arguments to array.
+
+Using information in 'args' property (particularly the 'pos' and 'greedy' of
+each argument spec), convert hash arguments to array.
+
+Example:
+
+    my $meta = {
+        v => 1.1,
+        summary => 'Multiply 2 numbers (a & b)',
+        args => {
+            a => ['num*' => {arg_pos=>0}],
+            b => ['num*' => {arg_pos=>1}],
+        }
+    }
+
+then 'convertI<args>to_array(args=>{a=>2, b=>3}, meta=>$meta)' will produce:
+
+    [200, "OK", [2, 3]]
+
+Arguments ('*' denotes required arguments):
+
+=over 4
+
+=item * B<args>* => I<hash>
+
+=item * B<meta>* => I<hash>
+
+=back
+
+Return value:
+
+Returns an enveloped result (an array).
+
+First element (status) is an integer containing HTTP status code
+(200 means OK, 4xx caller error, 5xx function error). Second element
+(msg) is a string containing error message, or 'OK' if status is
+200. Third element (result) is optional, the actual result. Fourth
+element (meta) is called result metadata and is optional, a hash
+that contains extra information.
+
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/Perinci-Sub-ConvertArgs-Array>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-Perinci-Sub-ConvertArgs-Array>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-Sub-ConvertArgs-Array>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
 =head1 AUTHOR
 
 Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Steven Haryanto.
+This software is copyright (c) 2014 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-

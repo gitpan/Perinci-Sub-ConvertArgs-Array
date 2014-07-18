@@ -2,12 +2,14 @@ NAME
     Perinci::Sub::ConvertArgs::Array - Convert hash arguments to array
 
 VERSION
-    version 0.04
+    This document describes version 0.05 of Perinci::Sub::ConvertArgs::Array
+    (from Perl distribution Perinci-Sub-ConvertArgs-Array), released on
+    2014-07-18.
 
 SYNOPSIS
      use Perinci::Sub::ConvertArgs::Array qw(convert_args_to_array);
 
-     my $res = convert_args_to_array(args=>\%args, spec=>$spec, ...);
+     my $res = convert_args_to_array(args=>\%args, meta=>$meta, ...);
 
 DESCRIPTION
     This module provides convert_args_to_array() (and
@@ -17,11 +19,66 @@ DESCRIPTION
 FUNCTIONS
     None are exported by default, but they are exportable.
 
+  convert_args_to_array(%args) -> [status, msg, result, meta]
+    Convert hash arguments to array.
+
+    Using information in 'args' property (particularly the 'pos' and
+    'greedy' of each argument spec), convert hash arguments to array.
+
+    Example:
+
+        my $meta = {
+            v => 1.1,
+            summary => 'Multiply 2 numbers (a & b)',
+            args => {
+                a => ['num*' => {arg_pos=>0}],
+                b => ['num*' => {arg_pos=>1}],
+            }
+        }
+
+    then 'convert*args*to_array(args=>{a=>2, b=>3}, meta=>$meta)' will
+    produce:
+
+        [200, "OK", [2, 3]]
+
+    Arguments ('*' denotes required arguments):
+
+    *   args* => *hash*
+
+    *   meta* => *hash*
+
+    Return value:
+
+    Returns an enveloped result (an array).
+
+    First element (status) is an integer containing HTTP status code (200
+    means OK, 4xx caller error, 5xx function error). Second element (msg) is
+    a string containing error message, or 'OK' if status is 200. Third
+    element (result) is optional, the actual result. Fourth element (meta)
+    is called result metadata and is optional, a hash that contains extra
+    information.
+
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Perinci-Sub-ConvertArgs-Array>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-Perinci-Sub-ConvertArgs-Array>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    <https://rt.cpan.org/Public/Dist/Display.html?Name=Perinci-Sub-ConvertAr
+    gs-Array>
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Steven Haryanto.
+    This software is copyright (c) 2014 by Steven Haryanto.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
